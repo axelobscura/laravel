@@ -90,4 +90,12 @@ class PostsController extends Controller
     {
         return view('contact');
     }
+
+    public function mensajes($id, $name, $password)
+    {
+        //return view('mensajes')->with('id', $id);
+
+        return view('mensajes', compact('id', 'name', 'password'));
+
+    }
 }
