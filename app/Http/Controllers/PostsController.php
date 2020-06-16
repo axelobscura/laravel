@@ -88,7 +88,10 @@ class PostsController extends Controller
 
     public function contact()
     {
-        return view('contact');
+
+        $people = ['Hugo', 'Paco', 'Luis'];
+
+        return view('contact', compact('people'));
     }
 
     public function mensajes($id, $name, $password)
