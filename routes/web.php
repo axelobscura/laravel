@@ -36,3 +36,9 @@ Route::resource('posts', 'PostsController');
 Route::get('/contact', 'PostsController@contact');
 
 Route::get('/mensajes/{id}/{name}/{password}', 'PostsController@mensajes');
+
+// Insert data to db the hard way
+
+Route::get('/insert', function(){
+    DB::insert('insert into posts(title, content, is_admin) values(?, ?, ?)', ['PHP With Laravel', 'Laravel is the best thing', '1']);
+});
