@@ -70,3 +70,8 @@ Route::get('/find', function(){
         return $post->title;
     }
 });
+
+Route::get('/findwhere', function(){
+    $post = Post::where('id', 3)->orderBy('id', 'desc')->take(1)->get();
+    return $post;
+});
