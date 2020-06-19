@@ -75,3 +75,9 @@ Route::get('/findwhere', function(){
     $post = Post::where('id', 3)->orderBy('id', 'desc')->take(1)->get();
     return $post;
 });
+
+Route::get('/findmore', function(){
+    //$posts = Post::findOrFail(3);
+    //return $posts;
+    $posts = Post::where('title', '<', '50')->firstOrFail();
+});
