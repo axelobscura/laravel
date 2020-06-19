@@ -95,3 +95,7 @@ Route::get('/basicinsert', function(){
 Route::get('/create', function(){
     Post::create(['title'=>'The create method', 'content'=>'I\'m learning pretty beautiful things', 'is_admin'=>'2']);
 });
+
+Route::get('/updatedos', function(){
+    Post::where('id', 3)->where('is_admin', '1')->update(['title'=>'The Wave', 'content'=>'Energy at its purest', 'is_admin'=>'2']);
+});
