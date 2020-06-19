@@ -84,8 +84,14 @@ Route::get('/findmore', function(){
 
 Route::get('/basicinsert', function(){
     $post = new Post;
+    //If you want to update by id
+    //$post = Post::find(1);
     $post->title = 'new Eloquent ORM Title insert';
     $post->content = 'Woe this is magical...';
     $post->is_admin = '1';
     $post->save();
+});
+
+Route::get('/create', function(){
+    Post::create(['title'=>'The create method', 'content'=>'I\'m learning pretty beautiful things', 'is_admin'=>'2']);
 });
