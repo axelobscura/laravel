@@ -81,3 +81,11 @@ Route::get('/findmore', function(){
     //return $posts;
     $posts = Post::where('title', '<', '50')->firstOrFail();
 });
+
+Route::get('/basicinsert', function(){
+    $post = new Post;
+    $post->title = 'new Eloquent ORM Title insert';
+    $post->content = 'Woe this is magical...';
+    $post->is_admin = '1';
+    $post->save();
+});
