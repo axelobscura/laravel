@@ -86,7 +86,7 @@ Route::get('/basicinsert', function(){
     $post = new Post;
     //If you want to update by id
     //$post = Post::find(1);
-    $post->title = 'new Eloquent ORM Title insert';
+    $post->title = 'Cuando llueve en México';
     $post->content = 'Woe this is magical...';
     $post->is_admin = '1';
     $post->save();
@@ -114,6 +114,19 @@ Route::get('/deletetres', function(){
 
 Route::get('/softdelete', function(){
     $post = Post::find(1);
-
     $post->delete();
+});
+
+Route::get('/readsoftdelete', function(){
+    //$post = Post::find(7);
+    //return $post;
+    //$post = Post::withTrashed()->where('id', 8)->get();
+    //return $post;
+    $post = Post::onlyTrashed()->where('id', 7)->get();
+    return $post;
+});
+
+Route::get('/restore', function(){
+    $post = Post::withTrashed()->where('id', 1)->restore();
+    return $post;
 });
