@@ -1,6 +1,8 @@
 <?php
 
 use App\Post;
+use App\User;
+
 
 /*
 |--------------------------------------------------------------------------
@@ -134,4 +136,13 @@ Route::get('/restore', function(){
 Route::get('/forcedelete', function(){
     $post = Post::withTrashed()->where('id', 8)->forceDelete();
 
+});
+
+
+// Eloquent relationships
+// Get post bid user_id
+
+// ONE TO ONE RELATIONSHIP
+Route::get('/user/{id}/post', function($id){
+    return User::find($id)->post;
 });

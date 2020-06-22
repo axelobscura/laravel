@@ -18,8 +18,3 @@ use Illuminate\Http\Request;
 Route::middleware('auth:api')->get('/user', function (Request $request) {
     return $request->user();
 });
-
-Route::get('/apifindwhere', function(){
-    $post = Post::where('id', 4)->orderBy('id', 'desc')->take(1)->get();
-    return $post;
-});
