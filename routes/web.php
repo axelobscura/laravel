@@ -99,3 +99,9 @@ Route::get('/create', function(){
 Route::get('/updatedos', function(){
     Post::where('id', 3)->where('is_admin', '1')->update(['title'=>'The Wave', 'content'=>'Energy at its purest', 'is_admin'=>'2']);
 });
+
+Route::get('/deletedos', function(){
+    $post = Post::find(5);
+
+    $post->delete();
+});
