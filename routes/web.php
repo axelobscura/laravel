@@ -130,3 +130,8 @@ Route::get('/restore', function(){
     $post = Post::withTrashed()->where('id', 1)->restore();
     return $post;
 });
+
+Route::get('/forcedelete', function(){
+    $post = Post::withTrashed()->where('id', 8)->forceDelete();
+
+});
