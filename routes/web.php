@@ -105,3 +105,7 @@ Route::get('/deletedos', function(){
 
     $post->delete();
 });
+
+Route::get('deletetres', function(){
+    Post::destroy(3);
+});
