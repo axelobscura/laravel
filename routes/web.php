@@ -95,7 +95,7 @@ Route::get('/basicinsert', function(){
 });
 
 Route::get('/create', function(){
-    Post::create(['title'=>'The create method', 'content'=>'I\'m learning pretty beautiful things', 'is_admin'=>'2']);
+    Post::create(['user_id'=>'2', 'title'=>'The create method', 'content'=>'I\'m learning pretty beautiful things', 'is_admin'=>'2']);
 });
 
 Route::get('/updatedos', function(){
