@@ -44,7 +44,7 @@ Route::get('/mensajes/{id}/{name}/{password}', 'PostsController@mensajes');
 // Database RAW sql queries
 
 Route::get('/insert', function(){
-    DB::insert('insert into posts(title, content, is_admin) values(?, ?, ?)', ['PHP With Laravel', 'Laravel is the best thing', '1']);
+    DB::insert('insert into posts(user_id, title, content, is_admin) values(?, ?, ?, ?)', ['1','PHP With Laravel', 'Laravel is the best thing', '1']);
 });
 
 Route::get('/read', function(){
@@ -138,11 +138,18 @@ Route::get('/forcedelete', function(){
 
 });
 
-
 // Eloquent relationships
 // Get post bid user_id
 
 // ONE TO ONE RELATIONSHIP
 Route::get('/user/{id}/post', function($id){
     return User::find($id)->post;
+});
+
+Route::get('/user/{id}/role', function($id){
+    $user = User::find($id)->roles()->orderBy('id', 'desc')->get();
+    return $user;
+    //foreach($user->roles as $role){
+    //    return $role->name;
+    //}
 });
