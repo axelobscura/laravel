@@ -47,5 +47,9 @@ class User extends Authenticatable
         'email_verified_at' => 'datetime',
     ];
 
+    public function photos(){
+        return $this->morphMany('App\Photo', 'imageable');
+    }
+
 
 }

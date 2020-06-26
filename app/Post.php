@@ -18,4 +18,12 @@ class Post extends Model
         'is_admin'
     ];
 
+    public function user(){
+        return $this->belongsTo('App\User');
+    }
+
+    public function photos(){
+        return $this->morphMany('App\Photo', 'imageable');
+    }
+
 }
