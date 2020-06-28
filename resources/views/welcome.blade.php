@@ -81,7 +81,7 @@
 
             <div class="content">
                 <div class="title m-b-md">
-                    AWEBO
+                    AWEBO LARAVEL
                 </div>
             </div>
         </div>
